@@ -57,7 +57,7 @@ namespace azure_function_crud
             var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             var data = JsonConvert.DeserializeObject<ToDoDto>(requestBody);
 
-            var result = await Repository.CreateTodo(data);
+            var result = await Repository.CreateTodoAsync(data);
 
             if (result == null)
             {

@@ -13,6 +13,7 @@ namespace azure_function_crud
     public static class Repository
     {
         private static string ConnectionString => Environment.GetEnvironmentVariable("ConnectionString");
+
         public static async Task<List<ToDo>> GetAllAsync()
         {
             var todosList = new List<ToDo>();
@@ -86,7 +87,7 @@ namespace azure_function_crud
             return rows != 0;
         }
 
-        public static async Task<ToDo> CreateTodo(ToDoDto dto)
+        public static async Task<ToDo> CreateTodoAsync(ToDoDto dto)
         {
             var todo = dto.CreateToDoFromDto();
             int rows;
